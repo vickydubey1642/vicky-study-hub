@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#155eef">
+<title>Vicky Study Hub | CUET 2027</title>
+<style>
+:root{--blue:#155eef;--blue2:#0b4bc4;--ink:#172b4d;--muted:#667085;--bg:#f4f7fc;--card:#fff;--line:#e5eaf3;--green:#12a66a;--red:#d92d20;--shadow:0 8px 28px rgba(20,48,95,.07)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+button,input,select{font:inherit}button{cursor:pointer}.app{max-width:1180px;margin:auto;padding:22px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:22px}.brand{display:flex;align-items:center;gap:12px}.logo{width:46px;height:46px;border-radius:14px;background:linear-gradient(145deg,#3478ff,#1049bd);color:white;display:grid;place-items:center;font-weight:800;font-size:19px;box-shadow:0 6px 16px #155eef35}.brand h1{font-size:20px;margin:0;letter-spacing:-.5px}.brand p{margin:2px 0 0;color:var(--muted);font-size:12px}.top-actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;padding:9px 13px;font-weight:650;font-size:13px}.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}.btn.primary:hover{background:var(--blue2)}.btn.soft{background:#edf3ff;color:var(--blue);border-color:#d9e5ff}.btn.danger{color:var(--red)}
+.welcome{background:linear-gradient(115deg,#104bc4,#2674f5);border-radius:20px;padding:24px;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:20px;box-shadow:var(--shadow);margin-bottom:18px}.welcome h2{font-size:25px;line-height:1.2;margin:0 0 7px;letter-spacing:-.6px}.welcome p{margin:0;color:#e1ebff}.date-pill{background:#ffffff20;border:1px solid #ffffff38;padding:9px 12px;border-radius:12px;font-size:13px;white-space:nowrap}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:18px}.stat,.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}.stat{padding:16px}.stat-label{color:var(--muted);font-size:12px;font-weight:650}.stat-value{font-size:25px;font-weight:800;margin-top:5px;letter-spacing:-.7px}.stat-note{font-size:11px;color:var(--muted);margin-top:2px}
+.layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,.85fr);gap:16px;align-items:start}.panel{padding:18px;margin-bottom:16px}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.panel h3{font-size:16px;margin:0;letter-spacing:-.2px}.sub{color:var(--muted);font-size:12px;margin-top:3px}
+.progress-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700;margin:8px 0}.track{height:10px;background:#edf1f7;border-radius:20px;overflow:hidden}.fill{height:100%;width:0;background:linear-gradient(90deg,#155eef,#4b91ff);border-radius:20px;transition:width .2s}
+.tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}.tab{border:1px solid var(--line);background:#fff;border-radius:9px;padding:7px 11px;font-size:12px;font-weight:700;color:var(--muted)}.tab.active{background:#edf3ff;border-color:#cbdcff;color:var(--blue)}
+.task{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid #edf0f5}.task:last-child{border-bottom:0}.check{width:19px;height:19px;accent-color:var(--blue);flex:none}.task-main{flex:1;min-width:0}.task-title{font-weight:650;font-size:13px;overflow-wrap:anywhere}.task.done .task-title{text-decoration:line-through;color:#98a2b3}.task-meta{font-size:11px;color:var(--muted);margin-top:3px}.tag{display:inline-block;background:#edf3ff;color:#245ac7;border-radius:6px;padding:2px 7px;font-size:10px;font-weight:750;margin-right:5px}.task-actions{display:flex;gap:5px}.iconbtn{border:1px solid var(--line);background:#fff;border-radius:8px;width:31px;height:31px;color:var(--muted)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.field{display:flex;flex-direction:column;gap:5px}.field.full{grid-column:1/-1}.field label{font-size:11px;font-weight:750;color:var(--muted)}.field input,.field select{width:100%;border:1px solid #dce3ee;border-radius:9px;padding:10px;background:#fff;color:var(--ink);outline:none}.field input:focus,.field select:focus{border-color:#7da8ff;box-shadow:0 0 0 3px #155eef12}
+.add-row{display:flex;justify-content:flex-end;margin-top:10px}.empty{text-align:center;color:var(--muted);padding:26px 10px;font-size:13px}
+.chart{height:145px;display:flex;align-items:end;gap:10px;padding:10px 2px 0}.bar-col{height:100%;flex:1;display:flex;flex-direction:column;justify-content:end;align-items:center;gap:6px;min-width:0}.bar-bg{height:105px;width:100%;max-width:35px;background:#edf2fb;border-radius:7px;display:flex;align-items:end;overflow:hidden}.bar-inner{width:100%;background:linear-gradient(180deg,#5793ff,#155eef);border-radius:7px 7px 0 0;min-height:2px}.bar-label{font-size:10px;color:var(--muted)}.bar-num{font-size:10px;color:var(--muted)}
+.history-item{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #edf0f5;font-size:12px}.history-item:last-child{border:0}.history-item strong{font-size:12px}.footer{text-align:center;color:#98a2b3;font-size:11px;padding:12px}
+.modal-backdrop{position:fixed;inset:0;background:#0b1d3a66;display:none;align-items:center;justify-content:center;padding:18px;z-index:10}.modal-backdrop.show{display:flex}.modal{width:min(460px,100%);background:#fff;border-radius:17px;padding:20px;box-shadow:0 20px 70px #001b4433}.modal h3{margin:0 0 14px}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#172b4d;color:#fff;padding:10px 15px;border-radius:10px;font-size:12px;opacity:0;pointer-events:none;transition:.2s;z-index:20}.toast.show{opacity:1}
+@media(max-width:800px){.app{padding:14px}.layout{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.welcome{padding:20px}.welcome h2{font-size:21px}}
+@media(max-width:480px){.top{align-items:flex-start}.brand h1{font-size:17px}.top-actions .btn{padding:8px 9px;font-size:11px}.welcome{align-items:flex-start;flex-direction:column}.date-pill{white-space:normal}.panel{padding:15px}.stats{gap:9px}.stat{padding:12px}.stat-value{font-size:22px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top">
+ <div class="brand"><div class="logo">VH</div><div><h1>VICKY STUDY HUB</h1><p>CUET UG 2027 · Study Planner</p></div></div>
+ <div class="top-actions">
+  <button class="btn soft" id="exportBtn">↓ Backup</button>
+  <button class="btn" id="importBtn">↑ Restore</button>
+  <input type="file" id="importFile" accept="application/json,.json" hidden>
+ </div>
+</header>
+<section class="welcome">
+ <div><h2>Small steps. Big results.</h2><p>Plan your day, track your effort and stay consistent.</p></div>
+ <div class="date-pill" id="todayDate">Loading date…</div>
+</section>
+<section class="stats">
+ <div class="stat"><div class="stat-label">TODAY'S PROGRESS</div><div class="stat-value" id="statProgress">0%</div><div class="stat-note">Tasks completed</div></div>
+ <div class="stat"><div class="stat-label">COMPLETED</div><div class="stat-value" id="statDone">0</div><div class="stat-note">Today's finished tasks</div></div>
+ <div class="stat"><div class="stat-label">REMAINING</div><div class="stat-value" id="statLeft">0</div><div class="stat-note">Tasks still to do</div></div>
+ <div class="stat"><div class="stat-label">CURRENT STREAK</div><div class="stat-value" id="statStreak">0 🔥</div><div class="stat-note">Days with completed tasks</div></div>
+</section>
+<div class="layout">
+ <main>
+  <section class="panel">
+   <div class="panel-head"><div><h3>Today's timetable</h3><div class="sub">Tick a task when you finish it. Your progress saves automatically.</div></div><span class="tag" id="taskCount">0 TASKS</span></div>
+   <div class="progress-row"><span>Daily completion</span><span id="progressText">0 / 0</span></div><div class="track"><div class="fill" id="progressFill"></div></div>
+   <div class="tabs" id="filters" style="margin-top:16px">
+    <button class="tab active" data-filter="All">All</button><button class="tab" data-filter="Physics">Physics</button><button class="tab" data-filter="Chemistry">Chemistry</button><button class="tab" data-filter="English">English</button><button class="tab" data-filter="GAT">GAT</button><button class="tab" data-filter="Other">Other</button>
+   </div>
+   <div id="taskList"></div>
+  </section>
+  <section class="panel">
+   <div class="panel-head"><div><h3>Weekly performance</h3><div class="sub">Daily completion percentage · last 7 days</div></div></div>
+   <div class="chart" id="weeklyChart"></div>
+  </section>
+ </main>
+ <aside>
+  <section class="panel">
+   <div class="panel-head"><div><h3 id="formHeading">Add a study task</h3><div class="sub">Build a routine that works for you.</div></div></div>
+   <form id="taskForm">
+    <div class="form-grid">
+     <div class="field full"><label for="taskTitle">TASK NAME</label><input id="taskTitle" maxlength="100" placeholder="e.g. Physics – 5 numericals" required></div>
+     <div class="field"><label for="taskSubject">SUBJECT</label><select id="taskSubject"><option>Physics</option><option>Chemistry</option><option>English</option><option>GAT</option><option>Revision</option><option>Break</option><option>Other</option></select></div>
+     <div class="field"><label for="taskTime">START TIME</label><input id="taskTime" type="time" value="07:00" required></div>
+    </div>
+    <div class="add-row"><button class="btn primary" id="saveTaskBtn" type="submit">+ Add task</button></div>
+   </form>
+  </section>
+  <section class="panel">
+   <div class="panel-head"><div><h3>Recent history</h3><div class="sub">Your last completed days</div></div></div>
+   <div id="historyList"></div>
+  </section>
+  <section class="panel">
+   <h3>Study tip</h3><p class="sub" style="font-size:13px;line-height:1.7;margin-bottom:0">First understand the question, then solve it. Accuracy comes before speed. Even a small, consistent study session counts.</p>
+  </section>
+ </aside>
+</div>
+<div class="footer">Vicky Study Hub · Your study data stays on this device unless you export a backup.</div>
+</div>
+<div class="modal-backdrop" id="editModal"><div class="modal">
+ <h3>Edit task</h3><form id="editForm"><input type="hidden" id="editId">
+ <div class="form-grid">
+  <div class="field full"><label for="editTitle">TASK NAME</label><input id="editTitle" required maxlength="100"></div>
+  <div class="field"><label for="editSubject">SUBJECT</label><select id="editSubject"><option>Physics</option><option>Chemistry</option><option>English</option><option>GAT</option><option>Revision</option><option>Break</option><option>Other</option></select></div>
+  <div class="field"><label for="editTime">START TIME</label><input id="editTime" type="time" required></div>
+ </div><div class="modal-actions"><button type="button" class="btn" id="cancelEdit">Cancel</button><button class="btn primary" type="submit">Save changes</button></div>
+ </form>
+</div></div>
+<div class="toast" id="toast"></div>
+<script>
+(() => {
+'use strict';
+const KEY='vicky-study-hub-v1';
+const $=id=>document.getElementById(id);
+const today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+const defaults=[
+ ['English vocabulary – 10 words','English','07:00'],
+ ['English sentence reading – 5 sentences','English','07:20'],
+ ['Physics numericals – 5 questions','Physics','08:00'],
+ ['Chemistry revision','Chemistry','10:00'],
+ ['GAT practice','GAT','16:00'],
+ ['CUET mini test – 10 MCQs','Revision','18:00'],
+ ['Revise mistakes','Revision','19:00']
+];
+let state;
+try{state=JSON.parse(localStorage.getItem(KEY)||'null')}catch(e){state=null}
+if(!state||!Array.isArray(state.tasks))state={tasks:defaults.map(x=>({id:uid(),title:x[0],subject:x[1],time:x[2]})),checks:{},history:[],lastDate:today()};
+state.checks=state.checks||{};state.history=Array.isArray(state.history)?state.history:[];
+let filter='All',editingId=null;
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){toast('Storage is full. Export a backup and clear old browser data.');}}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2300)}
+function rollDate(){
+ const now=today();if(state.lastDate!==now){
+  const old=state.lastDate, checks=state.checks[old]||{}, total=state.tasks.length, done=state.tasks.filter(t=>checks[t.id]).length;
+  if(old)state.history.unshift({date:old,total,done});
+  state.history=state.history.slice(0,90);state.lastDate=now;persist();
+ }
+}
+function dayStats(date){const checks=state.checks[date]||{},total=state.tasks.length,done=state.tasks.filter(t=>checks[t.id]).length;return {total,done,pct:total?Math.round(done/total*100):0}}
+function streak(){
+ let n=0,d=new Date();const todayStr=today();const todays=dayStats(todayStr);
+ if(todays.done===0)d.setDate(d.getDate()-1);
+ for(let i=0;i<365;i++){const key=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;const s=dayStats(key);const h=state.history.find(x=>x.date===key);if(s.done>0||(h&&h.done>0)){n++;d.setDate(d.getDate()-1)}else break;}return n;
+}
+function render(){
+ rollDate();
+ const date=new Date();$('todayDate').textContent=date.toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+ const s=dayStats(today()),checks=state.checks[today()]||{};
+ $('statProgress').textContent=s.pct+'%';$('statDone').textContent=s.done;$('statLeft').textContent=s.total-s.done;$('statStreak').textContent=streak()+' 🔥';
+ $('taskCount').textContent=s.total+' TASKS';$('progressText').textContent=`${s.done} / ${s.total}`;$('progressFill').style.width=s.pct+'%';
+ const list=[...state.tasks].sort((a,b)=>a.time.localeCompare(b.time)).filter(t=>filter==='All'||(filter==='Other'?['Other','Revision','Break'].includes(t.subject):t.subject===filter));
+ $('taskList').innerHTML=list.length?list.map(t=>`<div class="task ${checks[t.id]?'done':''}">
+ <input class="check" type="checkbox" data-check="${escapeHtml(t.id)}" ${checks[t.id]?'checked':''} aria-label="Mark ${escapeHtml(t.title)} complete">
+ <div class="task-main"><div class="task-title">${escapeHtml(t.title)}</div><div class="task-meta"><span class="tag">${escapeHtml(t.subject)}</span>${escapeHtml(t.time)}</div></div>
+ <div class="task-actions"><button class="iconbtn" data-edit="${escapeHtml(t.id)}" aria-label="Edit task">✎</button><button class="iconbtn" data-delete="${escapeHtml(t.id)}" aria-label="Delete task">×</button></div></div>`).join(''):'<div class="empty">No tasks in this category. Add a task or choose another filter.</div>';
+ document.querySelectorAll('#filters .tab').forEach(b=>b.classList.toggle('active',b.dataset.filter===filter));
+ renderHistory();renderChart();
+}
+function renderHistory(){
+ const items=state.history.slice(0,6);
+ $('historyList').innerHTML=items.length?items.map(h=>`<div class="history-item"><div><strong>${escapeHtml(h.date)}</strong><div class="sub">${h.done} of ${h.total} tasks</div></div><strong>${h.total?Math.round(h.done/h.total*100):0}%</strong></div>`).join(''):'<div class="empty">Your previous-day records will appear here after each new day.</div>';
+}
+function renderChart(){
+ const out=[];for(let i=6;i>=0;i--){let d=new Date();d.setDate(d.getDate()-i);let key=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;let s=dayStats(key);let h=state.history.find(x=>x.date===key);if(h&&!state.checks[key])s={total:h.total,done:h.done,pct:h.total?Math.round(h.done/h.total*100):0};out.push({label:d.toLocaleDateString('en-IN',{weekday:'short'}),pct:s.pct})}
+ $('weeklyChart').innerHTML=out.map(x=>`<div class="bar-col"><div class="bar-num">${x.pct}%</div><div class="bar-bg"><div class="bar-inner" style="height:${x.pct}%"></div></div><div class="bar-label">${x.label}</div></div>`).join('');
+}
+$('taskForm').addEventListener('submit',e=>{e.preventDefault();const title=$('taskTitle').value.trim();if(!title)return;state.tasks.push({id:uid(),title,subject:$('taskSubject').value,time:$('taskTime').value});persist();$('taskForm').reset();$('taskTime').value='07:00';render();toast('Task added to your timetable.')});
+$('taskList').addEventListener('change',e=>{if(!e.target.matches('[data-check]'))return;const id=e.target.dataset.check;state.checks[today()]=state.checks[today()]||{};state.checks[today()][id]=e.target.checked;persist();render()});
+$('taskList').addEventListener('click',e=>{
+ const edit=e.target.closest('[data-edit]'),del=e.target.closest('[data-delete]');
+ if(edit){const t=state.tasks.find(x=>x.id===edit.dataset.edit);if(!t)return;editingId=t.id;$('editId').value=t.id;$('editTitle').value=t.title;$('editSubject').value=t.subject;$('editTime').value=t.time;$('editModal').classList.add('show')}
+ if(del){const id=del.dataset.delete;if(confirm('Delete this task from your timetable?')){state.tasks=state.tasks.filter(t=>t.id!==id);Object.values(state.checks).forEach(c=>{if(c)delete c[id]});persist();render();toast('Task deleted.')}}
+});
+$('editForm').addEventListener('submit',e=>{e.preventDefault();const t=state.tasks.find(x=>x.id===editingId);if(t){t.title=$('editTitle').value.trim();t.subject=$('editSubject').value;t.time=$('editTime').value;persist();render();toast('Task updated.')}$('editModal').classList.remove('show')});
+$('cancelEdit').addEventListener('click',()=>$('editModal').classList.remove('show'));
+$('editModal').addEventListener('click',e=>{if(e.target===$('editModal'))$('editModal').classList.remove('show')});
+$('filters').addEventListener('click',e=>{const b=e.target.closest('[data-filter]');if(b){filter=b.dataset.filter;render()}});
+$('exportBtn').addEventListener('click',()=>{const blob=new Blob([JSON.stringify({...state,exportedAt:new Date().toISOString(),app:'Vicky Study Hub'},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='vicky-study-hub-backup-'+today()+'.json';a.click();URL.revokeObjectURL(a.href);toast('Backup downloaded.')});
+$('importBtn').addEventListener('click',()=>$('importFile').click());
+$('importFile').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{const parsed=JSON.parse(await file.text());if(!parsed||!Array.isArray(parsed.tasks)||typeof parsed.checks!=='object')throw Error('Invalid backup');if(!confirm('Restore this backup? Current timetable and history will be replaced.'))return;state={tasks:parsed.tasks,checks:parsed.checks||{},history:Array.isArray(parsed.history)?parsed.history:[],lastDate:today()};persist();render();toast('Backup restored successfully.')}catch(err){alert('Could not restore this file. Please choose a valid Vicky Study Hub JSON backup.')}finally{e.target.value=''}});
+render();
+})();
+</script>
+</body>
+</html>
